@@ -1,31 +1,3 @@
--- BxB.Ware Security — credit-locked (แก้/ลบบรรทัด __CREDIT ด้านล่าง = ไฟล์ตาย)
-local __CREDIT=[[This file was protected with BxB.Ware Security]]
-(__CREDIT):gsub('.+', function(__v) (getgenv and getgenv() or _G).__BXB_v_q2k7y58=__v end)
-do local __e=(getgenv and getgenv()) or _G if (__e.__BXB_v_q2k7y58 or "")~=[[This file was protected with BxB.Ware Security]] then return end end
-if not (getgenv or identifyexecutor or syn or fluxus or request or http_request or KRNL_LOADED) then return end
-if getgenv then local __g=getgenv() if __g.__BXBv_0344781 then return end __g.__BXBv_0344781=true end
-if not game:IsLoaded() then game.Loaded:Wait() end
-if script then pcall(function() script.Parent=nil end) end
-local v_xbedt30=false pcall(function() if getgenv then local g=getgenv() if g.__DECOMPILING or g.__SPY or g.unlockmodulescript_hooked then v_xbedt30=true end end end) if v_xbedt30 then return end
-local v_h9r0d70=false
-do local ic=iscclosure or checkclosure
-  if ic then
-    local vec={}
-    local function add(fn) if type(fn)=="function" then vec[#vec+1]=fn end end
-    add(loadstring) add(loadfile) add(request) add(http_request) add(game.HttpGet) add(game.HttpGetAsync)
-    if syn then add(syn.request) end if fluxus then add(fluxus.request) end if http then add(http.request) end
-    pcall(function() add(game:GetService("HttpService").RequestAsync) end)
-    for _,fn in ipairs(vec) do if not ic(fn) then v_h9r0d70=true end end
-  end
-end
-if v_h9r0d70 then return end
-local v_emwvf43=false pcall(function() local ic=iscclosure or checkclosure if ic then for _,fn in ipairs({hookfunction,hookmetamethod,getrawmetatable,setrawmetatable,newcclosure,getnamecallmethod,checkcaller,restorefunction}) do if type(fn)=="function" and not ic(fn) then v_emwvf43=true end end for _,fn in ipairs({game.GetService,game.FindFirstChild}) do if type(fn)=="function" and not ic(fn) then v_emwvf43=true end end end end) if v_emwvf43 then return end
-local v_5p6qx87=false pcall(function() local ic=iscclosure or checkclosure if ic then for _,fn in ipairs({getgc,getreg,getupvalue,getupvalues,debug and debug.getupvalue,debug and debug.getconstants,debug and debug.getproto}) do if type(fn)=="function" and not ic(fn) then v_5p6qx87=true end end end end) if v_5p6qx87 then return end
-pcall(function() local g=getgenv and getgenv() if g then g.getcallingscript=nil end end) pcall(function() if rconsoleclear then rconsoleclear() end if clearconsole then clearconsole() end end)
-local v_q7k1k1=false pcall(function() local ic=iscclosure or checkclosure if ic then for _,fn in ipairs({string.byte,string.char,table.concat,math.floor,table.unpack}) do if type(fn)=="function" and not ic(fn) then v_q7k1k1=true end end end end) if v_q7k1k1 then return end
-local v_lt2i690=function(x) return (x*3)%256 end local v_8skxp60=v_lt2i690(os.time())
-
-local __ok,__r=pcall(function()
 
 
 Library = {
@@ -13039,6 +13011,3 @@ end
 
 
 return Library
-end)
-if not __ok then return end
-return __r
