@@ -376,14 +376,8 @@ local function initializeScript()
         makePartsWalkthrough()
     end
 
-    local Library
-    if isfile and isfile("mains/uilib.txt") then
-        Library = loadstring(readfile("mains/uilib.txt"))()
-    elseif isfile and isfile("mains/uilib.lua") then
-        Library = loadstring(readfile("mains/uilib.lua"))()
-    else
-        Library = loadstring(game:HttpGet("https://bankroll.wtf/scripts/uilib.lua"))()
-    end
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/B-O-O-Ml/Crack/refs/heads/main/Bankroll/Library.lua"))()
+
 
     local Window = Library:Window({
         Name = "bankroll.wtf | leak by BxB.Ware ",
