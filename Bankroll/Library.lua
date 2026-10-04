@@ -1,3 +1,4 @@
+-- BxB.Ware Security — credit-locked (แก้/ลบบรรทัด __CREDIT ด้านล่าง = ไฟล์ตาย)
 local __CREDIT=[[This file was protected with BxB.Ware Security]]
 (__CREDIT):gsub('.+', function(__v) (getgenv and getgenv() or _G).__BXB_v_q2k7y58=__v end)
 do local __e=(getgenv and getgenv()) or _G if (__e.__BXB_v_q2k7y58 or "")~=[[This file was protected with BxB.Ware Security]] then return end end
