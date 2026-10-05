@@ -221,10 +221,19 @@ function BxB:CreateToggle(opts)
     btn.TextColor3 = Color3.fromRGB(200, 200, 210)
     btn.Font = Enum.Font.GothamBold
     btn.TextSize = 11.5
-    btn.Text = (opts.Text or "TOGGLE") .. " : OFF [" .. (opts.Key or "") .. "]"
     btn.BorderSizePixel = 0
     btn.Parent = opts.Parent or self.BodyContainer
     Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+
+    local keyLabel = ""
+    if typeof(opts.Key) == "EnumItem" then
+        keyLabel = " [" .. opts.Key.Name .. "]"
+    elseif type(opts.Key) == "string" and opts.Key ~= "" then
+        keyLabel = " [" .. opts.Key .. "]"
+    end
+
+    local textPrefix = opts.Text or "TOGGLE"
+    btn.Text = textPrefix .. " : OFF" .. keyLabel
 
     local state = false
     local function updateVisual()
@@ -233,13 +242,13 @@ function BxB:CreateToggle(opts)
                 BackgroundColor3 = Color3.fromRGB(0, 185, 120),
                 TextColor3 = Color3.fromRGB(255, 255, 255)
             }):Play()
-            btn.Text = (opts.Text or "TOGGLE") .. " : ACTIVE [" .. (opts.Key or "") .. "]"
+            btn.Text = textPrefix .. " : ACTIVE" .. keyLabel
         else
             TweenService:Create(btn, TweenInfo.new(0.2), {
                 BackgroundColor3 = Color3.fromRGB(24, 24, 30),
                 TextColor3 = Color3.fromRGB(200, 200, 210)
             }):Play()
-            btn.Text = (opts.Text or "TOGGLE") .. " : OFF [" .. (opts.Key or "") .. "]"
+            btn.Text = textPrefix .. " : OFF" .. keyLabel
         end
     end
 
@@ -249,7 +258,7 @@ function BxB:CreateToggle(opts)
         if opts.Callback then opts.Callback(state) end
     end)
 
-    if opts.Key then
+    if typeof(opts.Key) == "EnumItem" then
         local keyConn = UserInputService.InputBegan:Connect(function(input, gpe)
             if gpe then return end
             if input.KeyCode == opts.Key then
