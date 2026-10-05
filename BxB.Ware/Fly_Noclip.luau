@@ -1,6 +1,3 @@
-getgenv().FLY = true
-getgenv().NOCLIP = true
-
 local globalEnv = (getgenv and getgenv()) or _G
 globalEnv.BxB_Export = nil
 
