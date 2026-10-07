@@ -1,3 +1,4 @@
+
 if getgenv().BxB_Process then
     pcall(function() getgenv().BxB_Process:Teardown() end)
 end
@@ -9,7 +10,6 @@ local TweenService = game:GetService("TweenService")
 
 local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
-
 
 local flagFly = getgenv().FLY == true
 local flagNoclip = getgenv().NOCLIP == true
